@@ -8,8 +8,11 @@
 }
 
 .app-title {
+  justify-self: start;
+  color: white;
   font-weight: 600;
   letter-spacing: 0.3px;
+  font-size: 18px;
 }
 
 .nav-links {
@@ -18,9 +21,8 @@
   gap: 8px;
 }
 
-a {
+button {
   color: white;
-  text-decoration: none;
 }
 
 .active-link {

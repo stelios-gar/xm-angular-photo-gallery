@@ -1,13 +1,15 @@
 <mat-toolbar color="primary" class="app-header">
-  <span class="app-title">Photo Gallery</span>
+  <button mat-button class="app-title" routerLink="/photos">
+    Photo Gallery
+  </button>
 
   <nav class="nav-links">
-    <a mat-button routerLink="/photos" routerLinkActive="active-link">
+    <button mat-button routerLink="/photos" routerLinkActive="active-link">
       Photos
-    </a>
+    </button>
 
-    <a mat-button routerLink="/favorites" routerLinkActive="active-link">
+    <button mat-button routerLink="/favorites" routerLinkActive="active-link">
       Favorites
-    </a>
+    </button>
   </nav>
 </mat-toolbar>
