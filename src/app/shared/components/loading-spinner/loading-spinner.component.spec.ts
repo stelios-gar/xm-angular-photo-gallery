@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { LoadingSpinnerComponent } from './loading-spinner.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('LoadingSpinnerComponent', () => {
   let component: LoadingSpinnerComponent;
@@ -8,8 +9,13 @@ describe('LoadingSpinnerComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [
+        MatProgressSpinnerModule,
+        NoopAnimationsModule
+      ],
       declarations: [LoadingSpinnerComponent]
     });
+
     fixture = TestBed.createComponent(LoadingSpinnerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
