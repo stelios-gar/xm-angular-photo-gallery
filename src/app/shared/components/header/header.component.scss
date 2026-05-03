@@ -4,21 +4,12 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
-.app-title {
-  justify-self: start;
-  color: white;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-  font-size: 18px;
-}
-
 .nav-links {
-  grid-column: 2;
   display: flex;
   gap: 8px;
 }
