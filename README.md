@@ -1,27 +1,141 @@
-# GalleryTemplate
+# XM Angular Photo Gallery
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.8.
+Angular 16 photo gallery application built as a home assignment.
 
-## Development server
+## Overview
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+This application displays a random photo stream and allows users to add photos to a separate favorites page. Favorite photos persist after refresh. A detail page is provided for each selected favorite photo.
 
-## Code scaffolding
+The app was implemented with Angular Router, SCSS, Angular Material, custom infinite scroll, localStorage persistence, and unit tests.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Features
+
+- Photo stream page
+- Custom infinite scroll without external infinite-scroll libraries
+- Random photo generation using Picsum seed URLs
+- Add photos to favorites
+- Favorites page with persisted state using localStorage
+- Photo detail page with larger image preview
+- Remove photos from favorites
+- Fixed shared header navigation
+- Reusable photo card component
+- Reusable loading spinner component
+- Unit tests with Jasmine/Karma
+- 100% reported test coverage for statements, branches, functions, and lines
+
+## Routes
+
+```txt
+/photos
+/favorites
+/photos/:id
+```
+
+## Tech Stack
+
+* Angular 16.1.8
+* TypeScript
+* SCSS
+* Angular Material
+* RxJS
+* Jasmine / Karma
+* localStorage
+
+## Project Structure
+
+```txt
+src/app/
+  core/
+    services/
+      photo.service.ts
+      favorites.service.ts
+
+  features/
+    photos/
+      photos-page/
+    favorites/
+      favorites-page/
+    photo-detail/
+      photo-detail-page/
+
+  shared/
+    components/
+      header/
+      photo-card/
+      loading-spinner/
+    models/
+      photo.ts
+```
+
+## Photo Source
+
+Photos are generated with Picsum seed URLs:
+
+```txt
+https://picsum.photos/seed/{id}/200/300
+https://picsum.photos/seed/{id}/600/800
+```
+
+Seed URLs are used instead of plain random image URLs so each photo has a stable id and image URL. This makes favorites, persistence, and the detail page reliable after refresh.
+
+## Install
+
+```bash
+npm install
+```
+
+## Run Development Server
+
+```bash
+npm start
+```
+
+or:
+
+```bash
+npm run serve
+```
+
+Open:
+
+```txt
+http://localhost:4200
+```
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+npm run build
+```
 
-## Running unit tests
+## Run Tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+npm run test:ci
+```
 
-## Running end-to-end tests
+## Run Tests With Coverage
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+npm run test:coverage
+```
 
-## Further help
+Current local test result:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```txt
+42/42 tests passing
+Statements: 100%
+Branches: 100%
+Functions: 100%
+Lines: 100%
+```
+
+Note: On the local macOS / Chrome environment, Karma may show a browser reload warning after the tests complete. The Jasmine test assertions complete successfully and report all tests passing.
+
+## Implementation Notes
+
+* Infinite scroll is implemented manually using Angular and native browser scroll events.
+* No external infinite-scroll package is used.
+* Favorites are stored in localStorage because no backend is required.
+* The first photo batch is followed by an additional check to ensure the page becomes scrollable even on large screens.
+* The header layout was adjusted to stay close to the provided gallery mockup.
