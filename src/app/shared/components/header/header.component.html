@@ -1,1 +1,13 @@
-<p>header works!</p>
+<mat-toolbar color="primary" class="app-header">
+  <span class="app-title">Photo Gallery</span>
+
+  <nav class="nav-links">
+    <a mat-button routerLink="/photos" routerLinkActive="active-link">
+      Photos
+    </a>
+
+    <a mat-button routerLink="/favorites" routerLinkActive="active-link">
+      Favorites
+    </a>
+  </nav>
+</mat-toolbar>

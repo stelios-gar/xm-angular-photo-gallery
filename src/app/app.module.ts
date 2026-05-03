@@ -10,6 +10,8 @@ import { PhotoDetailPageComponent } from './features/photo-detail/photo-detail-p
 import { HeaderComponent } from './shared/components/header/header.component';
 import { PhotoCardComponent } from './shared/components/photo-card/photo-card.component';
 import { LoadingSpinnerComponent } from './shared/components/loading-spinner/loading-spinner.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { LoadingSpinnerComponent } from './shared/components/loading-spinner/loa
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
