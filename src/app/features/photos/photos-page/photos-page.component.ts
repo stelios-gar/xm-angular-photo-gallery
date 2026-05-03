@@ -47,6 +47,8 @@ export class PhotosPageComponent implements OnInit {
       next: photos => {
         this.photos = [...this.photos, ...photos];
         this.loading = false;
+
+        setTimeout(() => this.loadMoreIfPageIsNotScrollable());
       },
       error: () => {
         this.loading = false;
@@ -64,5 +66,14 @@ export class PhotosPageComponent implements OnInit {
       'Close',
       { duration: 2000 }
     );
+  }
+
+  private loadMoreIfPageIsNotScrollable(): void {
+    const pageHeight = document.documentElement.scrollHeight;
+    const viewportHeight = window.innerHeight;
+
+    if (pageHeight <= viewportHeight && !this.loading) {
+      this.loadPhotos();
+    }
   }
 }
