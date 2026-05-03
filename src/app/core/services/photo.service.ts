@@ -14,7 +14,8 @@ export class PhotoService {
 
       return {
         id,
-        url: `https://picsum.photos/seed/${id}/200/300`
+        url: `https://picsum.photos/seed/${id}/200/300`,
+        detailUrl: `https://picsum.photos/seed/${id}/600/800`
       };
     });
 
@@ -24,7 +25,8 @@ export class PhotoService {
   getPhotoById(id: string): Photo {
     return {
       id,
-      url: `https://picsum.photos/seed/${id}/200/300`
+      url: `https://picsum.photos/seed/${id}/200/300`,
+      detailUrl: `https://picsum.photos/seed/${id}/600/800`
     };
   }
 

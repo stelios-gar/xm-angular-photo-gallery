@@ -1,6 +1,6 @@
 <section class="photo-detail-page" *ngIf="photo">
   <div class="photo-wrapper">
-    <img [src]="photo.url" [alt]="photo.id">
+  <img [src]="photo.detailUrl || photo.url" [alt]="photo.id">
 
     <button
       mat-raised-button
