@@ -1,3 +1,5 @@
+/// <reference types="jasmine" />
+
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { LoadingSpinnerComponent } from './loading-spinner.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -23,5 +25,11 @@ describe('LoadingSpinnerComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should render a material spinner', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+
+    expect(compiled.querySelector('mat-spinner')).toBeTruthy();
   });
 });

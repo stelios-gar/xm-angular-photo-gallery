@@ -1,3 +1,5 @@
+/// <reference types="jasmine" />
+
 import { TestBed } from '@angular/core/testing';
 import { FavoritesService } from './favorites.service';
 import { Photo } from '../../shared/models/photo';
@@ -25,7 +27,7 @@ describe('FavoritesService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should return an empty array when no favorites exist', () => {
+  it('should return an empty array when there are no favorites', () => {
     expect(service.getFavorites()).toEqual([]);
   });
 
@@ -33,6 +35,14 @@ describe('FavoritesService', () => {
     service.addFavorite(photo);
 
     expect(service.getFavorites()).toEqual([photo]);
+  });
+
+  it('should persist favorites in localStorage', () => {
+    service.addFavorite(photo);
+
+    const storedFavorites = JSON.parse(localStorage.getItem('favoritePhotos') ?? '[]');
+
+    expect(storedFavorites).toEqual([photo]);
   });
 
   it('should not add duplicate photos', () => {
@@ -44,6 +54,7 @@ describe('FavoritesService', () => {
 
   it('should remove a photo from favorites', () => {
     service.addFavorite(photo);
+
     service.removeFavorite(photo.id);
 
     expect(service.getFavorites()).toEqual([]);
@@ -60,5 +71,9 @@ describe('FavoritesService', () => {
     service.addFavorite(photo);
 
     expect(service.getFavoriteById(photo.id)).toEqual(photo);
+  });
+
+  it('should return undefined when a favorite photo is not found', () => {
+    expect(service.getFavoriteById('unknown-photo')).toBeUndefined();
   });
 });
