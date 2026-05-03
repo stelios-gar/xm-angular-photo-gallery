@@ -1,1 +1,13 @@
-<p>photo-detail-page works!</p>
+<section class="photo-detail-page" *ngIf="photo">
+  <div class="photo-wrapper">
+    <img [src]="photo.url" [alt]="photo.id">
+
+    <button
+      mat-raised-button
+      color="warn"
+      type="button"
+      (click)="removeFromFavorites()">
+      Remove from favorites
+    </button>
+  </div>
+</section>
