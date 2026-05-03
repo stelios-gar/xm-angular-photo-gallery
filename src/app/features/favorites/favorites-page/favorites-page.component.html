@@ -1,1 +1,15 @@
-<p>favorites-page works!</p>
+<section class="favorites-page">
+  <h1>Favorites</h1>
+
+  <p *ngIf="favoritePhotos.length === 0" class="empty-message">
+    You have not added any favorite photos yet.
+  </p>
+
+  <div class="favorites-grid" *ngIf="favoritePhotos.length > 0">
+    <app-photo-card
+      *ngFor="let photo of favoritePhotos"
+      [photo]="photo"
+      (photoClick)="openPhoto($event)">
+    </app-photo-card>
+  </div>
+</section>
