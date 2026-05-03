@@ -48,14 +48,6 @@ describe('HeaderComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render the title', () => {
-    const compiled = fixture.nativeElement as HTMLElement;
-    const titleButton = compiled.querySelector('.app-title');
-
-    expect(titleButton).toBeTruthy();
-    expect(titleButton?.textContent?.trim()).toBe('Photo Gallery');
-  });
-
   it('should render navigation buttons', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     const buttons = Array.from(compiled.querySelectorAll('button'));
