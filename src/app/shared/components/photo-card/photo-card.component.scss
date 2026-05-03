@@ -1,0 +1,16 @@
+.photo-card {
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+
+  img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+  }
+}
